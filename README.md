@@ -1,6 +1,7 @@
 CoverSucker 🐙
 
 Un script de Python para descargar todos los datos de tus clientes de CoverManager utilizando su API, ¡y mantenerlos organizados! 🚀
+
 ✨ Funcionalidades
 
 Este proyecto te proporciona las herramientas para:
