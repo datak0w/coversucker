@@ -1,3 +1,10 @@
+ ██████╗ ██████╗ ██╗   ██╗███████╗██████╗ ███████╗██╗   ██╗ ██████╗██╗  ██╗███████╗██████╗     
+██╔════╝██╔═══██╗██║   ██║██╔════╝██╔══██╗██╔════╝██║   ██║██╔════╝██║ ██╔╝██╔════╝██╔══██╗    
+██║     ██║   ██║██║   ██║█████╗  ██████╔╝███████╗██║   ██║██║     █████╔╝ █████╗  ██████╔╝    
+██║     ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗╚════██║██║   ██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗    
+╚██████╗╚██████╔╝ ╚████╔╝ ███████╗██║  ██║███████║╚██████╔╝╚██████╗██║  ██╗███████╗██║  ██║    
+ ╚═════╝ ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝    
+
 coversucker 🐙
 
 Un script de Python para descargar todos los datos de tus clientes de CoverManager utilizando su API, ¡y mantenerlos organizados! 🚀
@@ -11,7 +18,7 @@ Este proyecto te proporciona las herramientas para:
 
     Guardado incremental en CSV: Los datos se guardan directamente en un archivo CSV a medida que se descargan, lo que es ideal para grandes volúmenes de datos. 💾
 
-    Eliminación de duplicados por email: Un script adicional para limpiar tu lista, asegurando que cada dirección de email sea única. 🧹
+    Eliminación de duplicados por email integrada: Una vez que todos los clientes son descargados, el script automáticamente procesa y genera un segundo archivo CSV con entradas únicas por dirección de email. 🧹
 
 🛠️ Requisitos
 
@@ -21,7 +28,7 @@ Este proyecto te proporciona las herramientas para:
 
 🚀 Instalación
 
-    Clona este repositorio (o descarga los archivos directamente):
+    Clona este repositorio (o descarga el archivo coversucker.py directamente):
 
     git clone https://github.com/tu-usuario/coversucker.git
     cd coversucker
@@ -34,7 +41,7 @@ Este proyecto te proporciona las herramientas para:
 
 Antes de ejecutar el script, necesitas configurar tu API Key de CoverManager y el slug de tu restaurante.
 
-    Abre el archivo todos_clientes_covermanager.py en tu editor de texto favorito.
+    Abre el archivo coversucker.py en tu editor de texto favorito.
 
     Encuentra y actualiza las siguientes líneas en la sección --- Configuración ---:
 
@@ -46,26 +53,18 @@ Antes de ejecutar el script, necesitas configurar tu API Key de CoverManager y e
         YOUR_RESTAURANT_SLUG: Es el identificador único de tu restaurante en CoverManager (por ejemplo, "casa-carlos" o "restaurante-oliviavalerenoweb").
 
 🏃 Cómo usar
-1. Descargar todos los clientes
 
-Ejecuta el script principal desde tu terminal:
+Simplemente ejecuta el script principal desde tu terminal:
 
-python todos_clientes_covermanager.py
+python coversucker.py
 
-El script comenzará a descargar las páginas de clientes y las guardará en un archivo llamado todos_clientes_covermanager.csv en el mismo directorio. Verás el progreso en tu consola.
-2. Eliminar duplicados por email
+El script realizará los siguientes pasos automáticamente:
 
-Una vez que hayas descargado todos tus clientes, puedes usar el script de limpieza:
+    Comenzará a descargar las páginas de clientes y las guardará en un archivo llamado todos_clientes_covermanager.csv en el mismo directorio. Verás el progreso en tu consola.
 
-    Abre el archivo eliminar_duplicados.py.
+    Una vez que la descarga esté completa, procesará automáticamente este archivo para eliminar duplicados por email.
 
-    Asegúrate de que INPUT_FILENAME y OUTPUT_FILENAME_UNIQUE estén configurados correctamente (por defecto, usarán los nombres generados por el script de descarga).
-
-    Ejecuta el script desde tu terminal:
-
-    python eliminar_duplicados.py
-
-    Esto creará un nuevo archivo llamado clientes_covermanager_unicos_por_email.csv con todas las entradas únicas basadas en la dirección de email.
+    Creará un segundo archivo llamado clientes_covermanager_unicos_por_email.csv con todas las entradas únicas basadas en la dirección de email.
 
 ⚠️ Notas Importantes
 
@@ -73,6 +72,6 @@ Una vez que hayas descargado todos tus clientes, puedes usar el script de limpie
 
     Tasa de solicitudes (Rate Limiting): El script incluye una pequeña pausa (time.sleep(0.5)) entre cada solicitud para evitar sobrecargar la API de CoverManager y ser bloqueado. Si experimentas errores relacionados con límites de tasa, puedes aumentar este valor.
 
-    Estructura de datos: La API de CoverManager puede evolucionar. Si la estructura de los datos de los clientes cambia, es posible que necesites ajustar la lista FIELDNAMES en los scripts para que coincida con los nuevos campos.
+    Estructura de datos: La API de CoverManager puede evolucionar. Si la estructura de los datos de los clientes cambia, es posible que necesites ajustar la lista FIELDNAMES dentro del script coversucker.py para que coincida con los nuevos campos.
 
 ¡Disfruta de tus datos de clientes! 🎉
